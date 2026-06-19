@@ -9,12 +9,17 @@
 <form method="POST">
     {% csrf_token %}
     <div align="center">
-        <h1>User Registration</h1>
+        {% if form.id > 0 %}
+        <h1>Update User</h1>
+        {% else %}
+        <h1>Add User</h1>
+        {% endif %}
         {% if form.error %}
         <h3><font color="red">{{ form.message }}</font></h3>
         {% else %}
         <h3><font color="green">{{ form.message }}</font></h3>
         {% endif %}
+        <input type="hidden" name="id" value="{{ form.id }}">
         <table>
             <tr>
                 <th>First Name:</th>
@@ -48,12 +53,16 @@
             </tr>
             <tr>
                 <th></th>
-                <td><input type="submit" value="signUp"></td>
+                <td>
+                    {% if form.id > 0 %}
+                    <input type="submit" value="update">
+                    {% else %}
+                    <input type="submit" value="save">
+                    {% endif %}
+                </td>
             </tr>
         </table>
     </div>
 </form>
-</body>
-
 </body>
 </html>

@@ -5,11 +5,36 @@
     <title>Title</title>
 </head>
 <body>
-<h3> Hi , Guest </h3>
-<a href="/ors/welcome/"><b>welcome</b></a> |
-<a href="/ors/signin/"><b>signin</b></a> |
-<a href="/ors/signup/"><b>signup</b></a>
+<!--<h3> Hi , Guest </h3>-->
+<!--<a href="/ors/welcome/"><b>welcome</b></a> |-->
+<!--<a href="/ors/signin/"><b>signin</b></a> |-->
+<!--<a href="/ors/signup/"><b>signup</b></a>-->
+
+<!--{% if name != None %}-->
+<!--<h3> Hi , {{ name }}</h3>-->
+<!--<a href="#"><b>Add User</b></a> |-->
+<!--<a href="#"><b>User List</b></a> |-->
+<!--<a href="#"><b>Logout</b></a>-->
+<!--{% else %}-->
+<!--<h3> Hi , Guest </h3>-->
+<!--<a href="/ors/welcome/"><b>welcome</b></a> |-->
+<!--<a href="/ors/signin/"><b>signin</b></a> |-->
+<!--<a href="/ors/signup/"><b>signup</b></a>-->
+<!--{% endif %}-->
+
+{% if request.session.first_name != None %}
+<h3>Hi, {{ request.session.first_name }}</h3>
+<a href="/ors/save/"><b>Add User</b></a> <b>|</b>
+<a href="/ors/list/"><b>User List</b></a> <b>|</b>
+<a href="/ors/logout/"><b>Logout</b></a>
+{% else %}
+<h3>Hi, Guest</h3>
+<a href="/ors/welcome/"><b>Welcome</b></a> <b>|</b>
+<a href="/ors/signin/"><b>Login</b></a> <b>|</b>
+<a href="/ors/signup/"><b>Registration</b></a>
+{% endif %}
 <hr>
+
 
 </body>
 </html>

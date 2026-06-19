@@ -6,9 +6,10 @@
 </head>
 <body>
 {% include "header.html" %}
-<br><br><br><br>
+<br><br><br><br><br><br><br><br>
 <div align="center">
-    <h1> welcome To My Django Project </h1>\
+    <h1 style="color: blue;">Welcome To My Django Project</h1>
+    <h3> Hi , {{ request.session.name }} </h3>
 </div>
 
 </body>
